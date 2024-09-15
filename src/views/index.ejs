@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title><%= title %></title>
+</head>
+<body>
+    <header>
+        <h1><%= pageTitle %></h1>
+    </header>
+
+    <nav>
+        <ul>
+            <% menuItems.forEach(function(item) { %>
+                <li><a href="<%= item.url %>"><%= item.name %></a></li>
+            <% }); %>
+        </ul>
+    </nav>
+
+    <main>
+        <% if (user) { %>
+            <p>Bienvenue, <%= user.name %> !</p>
+        <% } else { %>
+            <p>Veuillez vous connecter.</p>
+        <% } %>
+
+        <h2>Liste des amis</h2>
+        <ul>
+            <% friends.forEach(function(friend) { %>
+                <li>
+                    <%= friend.name %> - Prochain anniversaire dans <%= friend.daysUntilBirthday %> jours
+                </li>
+            <% }); %>
+        </ul>
+    </main>
+
+    <footer>
+        <p>&copy; <%= new Date().getFullYear() %> Mon Application</p>
+    </footer>
+</body>
+</html>
